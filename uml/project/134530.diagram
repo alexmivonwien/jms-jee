@@ -1,0 +1,12 @@
+format 72
+
+classcanvas 128002 class_ref 135298 // TimerStarter
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 24 52 2000
+end
+usecasecanvas 128130 usecase_ref 128002 // scheduleEvents
+  xyzwh 226 43 3005 64 32 label_xy 220 75
+end
+line 128898 --->
+  from ref 128002 z 3006 to ref 128130
+end

@@ -1,0 +1,102 @@
+format 72
+
+classinstancecanvas 128258 classinstance_ref 128130 // 
+  xyz 6 17 2000 life_line_z 2000
+end
+classinstancecanvas 128642 classinstance_ref 134658 // 
+  xyz 210 19 2000 life_line_z 2000
+end
+classinstancecanvas 129026 classinstance_ref 134786 // 
+  xyz 362 20 2000 life_line_z 2000
+end
+classinstancecanvas 130562 classinstance_ref 134914 // 
+  xyz 483 22 2000 life_line_z 2000
+end
+classinstance 130946 class_ref 135042 // EntityManager
+  name ""   xyz 645 25 2005 life_line_z 2000
+classinstance 131714 class_ref 135170 // Command
+  name ""   xyz 771 25 2000 life_line_z 2000
+durationcanvas 129666 classinstance_ref 129026 // :Consumer
+  xyzwh 388 154 2010 11 32
+end
+durationcanvas 130050 classinstance_ref 128258 // :Producer
+  xyzwh 30 115 2010 11 40
+end
+durationcanvas 130306 classinstance_ref 128642 // :JMSService
+  xyzwh 240 138 2010 11 25
+end
+durationcanvas 130690 classinstance_ref 130562 // :EventProcessor
+  xyzwh 523 175 2010 11 254
+  overlappingdurationcanvas 131458
+    xyzwh 529 247 2020 11 51
+  end
+end
+durationcanvas 131074 classinstance_ref 130946 // :EntityManager
+  xyzwh 681 185 2010 11 27
+end
+durationcanvas 131842 classinstance_ref 131714 // :Command
+  xyzwh 796 287 2010 11 147
+  overlappingdurationcanvas 132482
+    xyzwh 802 300 2020 11 129
+  end
+end
+lostfoundmsgsupport 129794 xyz 254 156 2020
+msg 129922 found_synchronous
+  from lostfoundmsgsupport_ref 129794
+  to durationcanvas_ref 129666
+  yz 154 2020 explicitmsg "2. onMessage()"
+  show_full_operations_definition default drawing_language default
+  args "javax.jms.Message message"
+  label_xy 269 137
+reflexivemsg 130178 synchronous
+  to durationcanvas_ref 130050
+  yz 115 2015 explicitmsg "1. generateEvent()"
+  show_full_operations_definition default drawing_language default
+  args "javax.ejb.Timer timer"
+  label_xy 15 101
+msg 130434 synchronous
+  from durationcanvas_ref 130050
+  to durationcanvas_ref 130306
+  yz 138 2025 explicitmsg "1.1 send()"
+  show_full_operations_definition default drawing_language default
+  args "ObjectMessage msg"
+  label_xy 111 124
+msg 130818 synchronous
+  from durationcanvas_ref 129666
+  to durationcanvas_ref 130690
+  yz 175 2015 explicitmsg "2.1 processEvent()"
+  show_full_operations_definition default drawing_language default
+  args "EventType"
+  label_xy 409 161
+msg 131202 synchronous
+  from durationcanvas_ref 130690
+  to durationcanvas_ref 131074
+  yz 185 2020 explicitmsg "2.2 getActions()"
+  show_full_operations_definition default drawing_language default
+  label_xy 573 171
+msg 131330 return
+  from durationcanvas_ref 131074
+  to durationcanvas_ref 130690
+  yz 201 2025 explicitmsg "List"
+  show_full_operations_definition default drawing_language default
+  label_xy 604 194
+reflexivemsg 131586 synchronous
+  to durationcanvas_ref 131458
+  yz 247 2030 explicitmsg "for ()"
+  show_full_operations_definition default drawing_language default
+  args "action: Actions"
+  label_xy 542 232
+msg 131970 synchronous
+  from durationcanvas_ref 131458
+  to durationcanvas_ref 131842
+  yz 287 2025 explicitmsg "2.3 instantiate"
+  show_full_operations_definition default drawing_language default
+  label_xy 647 273
+msg 132610 synchronous
+  from durationcanvas_ref 130690
+  to durationcanvas_ref 132482
+  yz 381 2030 explicitmsg "2.4 execute()"
+  show_full_operations_definition default drawing_language default
+  args "EventType"
+  label_xy 613 367
+end

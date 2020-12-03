@@ -1,0 +1,157 @@
+format 72
+
+classinstancecanvas 128002 classinstance_ref 141442 // 
+  xyz -6 26 2000 life_line_z 2000
+end
+classinstancecanvas 128130 classinstance_ref 141570 // 
+  xyz 132 27 2000 life_line_z 2000
+end
+classinstancecanvas 128642 classinstance_ref 141698 // someEventFactory
+  xyz 660 27 2000 life_line_z 2000
+end
+classinstancecanvas 129922 classinstance_ref 141954 // session 
+  xyz 215 26 2000 life_line_z 2000
+end
+classinstancecanvas 130818 classinstance_ref 142082 // producer
+  xyz 372 26 2005 life_line_z 2000
+end
+classinstancecanvas 134914 classinstance_ref 142210 // objMsg
+  xyz 529 26 2010 life_line_z 2000
+end
+durationcanvas 128258 classinstance_ref 128002 // :MessageProducerJob
+  xyzwh 48 93 2010 11 595
+end
+durationcanvas 128386 classinstance_ref 128130 // :JMSService
+  xyzwh 162 81 2010 11 102
+end
+durationcanvas 129154 classinstance_ref 128642 // someEventFactory:AbstractEventFactory
+  xyzwh 760 163 2010 11 341
+end
+durationcanvas 130050 classinstance_ref 129922 // session :javax.jms.Session
+  xyzwh 281 106 2010 11 584
+  overlappingdurationcanvas 133890
+    xyzwh 287 216 2020 11 64
+  end
+  overlappingdurationcanvas 134658
+    xyzwh 287 359 2020 11 29
+  end
+  overlappingdurationcanvas 136450
+    xyzwh 287 659 2020 11 25
+  end
+end
+durationcanvas 130946 classinstance_ref 130818 // producer:MessageProducer
+  xyzwh 440 241 2010 11 442
+  overlappingdurationcanvas 134402
+    xyzwh 446 286 2020 11 25
+  end
+  overlappingdurationcanvas 135682
+    xyzwh 446 568 2020 11 67
+  end
+  overlappingdurationcanvas 136194
+    xyzwh 446 614 2020 11 25
+  end
+end
+durationcanvas 135042 classinstance_ref 134914 // objMsg:ObjectMessage
+  xyzwh 585 377 2010 11 187
+  overlappingdurationcanvas 135426
+    xyzwh 591 526 2020 11 25
+  end
+end
+msg 128514 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128386
+  yz 93 2015 explicitmsg "1.1 createSession()"
+  show_full_operations_definition default drawing_language default
+  label_xy 60 77
+msg 128770 return
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128258
+  yz 163 2020 explicitmsg "session"
+  show_full_operations_definition default drawing_language default
+  label_xy 103 146
+msg 129282 asynchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 129154
+  yz 455 2015 explicitmsg "2.4 generateEvent()"
+  show_full_operations_definition default drawing_language default
+  label_xy 105 441
+msg 129410 return
+  from durationcanvas_ref 129154
+  to durationcanvas_ref 128258
+  yz 485 2015 explicitmsg "eventType"
+  show_full_operations_definition default drawing_language default
+  label_xy 114 473
+msg 130178 asynchronous
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 130050
+  yz 107 2025 explicitmsg "1.2 create()"
+  show_full_operations_definition default drawing_language default
+  label_xy 203 93
+msg 131202 return
+  from durationcanvas_ref 130946
+  to durationcanvas_ref 128258
+  yz 314 2015 explicitmsg "producer"
+  show_full_operations_definition default drawing_language default
+  label_xy 200 298
+msg 132610 return
+  from durationcanvas_ref 130050
+  to durationcanvas_ref 128386
+  yz 129 2015 explicitmsg "session"
+  show_full_operations_definition default drawing_language default
+  label_xy 219 115
+msg 134018 asynchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 133890
+  yz 261 2025 explicitmsg "2.1 createProducer(Topic)"
+  show_full_operations_definition default drawing_language default
+  args "javax.jms.Topic"
+  label_xy 93 247
+msg 134530 asynchronous
+  from durationcanvas_ref 130050
+  to durationcanvas_ref 134402
+  yz 286 2030 explicitmsg "2.2 create()"
+  show_full_operations_definition default drawing_language default
+  label_xy 355 272
+msg 134786 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 134658
+  yz 360 2025 explicitmsg "2.3 createObjectMessage()"
+  show_full_operations_definition default drawing_language default
+  label_xy 108 346
+msg 135170 synchronous
+  from durationcanvas_ref 134658
+  to durationcanvas_ref 135042
+  yz 377 2025 explicitmsg "create()"
+  show_full_operations_definition default drawing_language default
+  label_xy 426 363
+msg 135298 return
+  from durationcanvas_ref 135042
+  to durationcanvas_ref 128258
+  yz 403 2030 explicitmsg "objMsg"
+  show_full_operations_definition default drawing_language default
+  label_xy 306 389
+msg 135554 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 135426
+  yz 527 2025 explicitmsg "2.5 setObject(eventType)"
+  show_full_operations_definition default drawing_language default
+  label_xy 105 511
+msg 135810 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 135682
+  yz 575 2025 explicitmsg "2.6. send (objMsg)"
+  show_full_operations_definition default drawing_language default
+  label_xy 108 560
+msg 136322 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 136194
+  yz 614 2025 explicitmsg "2.7 close()"
+  show_full_operations_definition default drawing_language default
+  label_xy 109 601
+msg 136578 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 136450
+  yz 659 2025 explicitmsg "2.8 close()"
+  show_full_operations_definition default drawing_language default
+  label_xy 109 645
+end

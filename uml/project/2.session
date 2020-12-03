@@ -1,0 +1,15 @@
+window_sizes 1152 808 163 983 639 95
+diagrams
+  active  sequencediagram_ref 141442 // SendMessages_SD
+    983 639 100 4 0 0
+  usecasediagram_ref 134658 // GenerateEvents
+    749 453 100 4 0 0
+  usecasediagram_ref 134530 // ScheduleEvents
+    749 453 100 4 0 0
+end
+show_stereotypes
+selected sequencediagram_ref 141442 // SendMessages_SD
+open
+  usecaseview_ref 128002 // view
+end
+end

@@ -1,0 +1,18 @@
+format 72
+
+classcanvas 128002 class_ref 134658 // JMSService
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 37 117 2000
+end
+usecasecanvas 128130 usecase_ref 128258 // DeliverMessages
+  xyzwh 255 119 3005 64 32 label_xy 245 151
+end
+usecasecanvas 129026 usecase_ref 128386 // SendMessages
+  xyzwh 226 28 3005 64 32 label_xy 242 61
+end
+line 128898 --->
+  from ref 128002 z 3006 to point 135 142
+  line 129282 z 3006 to ref 128130
+line 129154 ---> decenter_end 140
+  from ref 128002 z 3006 to ref 129026
+end

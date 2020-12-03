@@ -1,0 +1,12 @@
+format 72
+
+classcanvas 128002 class_ref 135426 // TimerService
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 40 99 2000
+end
+usecasecanvas 128130 usecase_ref 128130 // GenerateEvents
+  xyzwh 259 74 3005 64 32 label_xy 252 106
+end
+line 128258 --->
+  from ref 128002 z 3006 to ref 128130
+end
