@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table (name = "action")
+@Table (name = "act")
 public class Action implements Serializable{
 
 	private static final long serialVersionUID = -7780300237507883757L;
@@ -22,7 +22,7 @@ public class Action implements Serializable{
 	@GeneratedValue
 	private int id;
 	
-	@Column(name="TYPE")
+	@Column(name="TYP")
 	private String type;
 	
 	

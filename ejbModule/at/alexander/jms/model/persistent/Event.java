@@ -42,19 +42,19 @@ public class Event implements Serializable{
 		this.id = id;
 	}
 
-	@Column(name="TYPE")
+	@Column(name="TYP")
 	private String type;
 	
 
 	@OneToMany
-	@JoinTable( name="EVENT_ACTION",
+	@JoinTable( name="EVENT_ACT",
 			    joinColumns = { @JoinColumn (name="EVENT_ID")},
-			    inverseJoinColumns={@JoinColumn(name="ACTION_ID")}
+			    inverseJoinColumns={@JoinColumn(name="ACT_ID")}
 				)
 
-	private Collection <Action> eventActions;
+	private List <Action> eventActions;
 
-	public Collection<Action> getEventActions() {
+	public List<Action> getEventActions() {
 		return eventActions;
 	}
 

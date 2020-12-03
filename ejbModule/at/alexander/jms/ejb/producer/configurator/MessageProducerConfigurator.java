@@ -8,6 +8,8 @@ import java.sql.SQLException;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
@@ -38,6 +40,9 @@ public class MessageProducerConfigurator {
 	// factory determining the generation of events
 	private AbstractEventFactory eventFactory;
 	
+	
+	@PersistenceContext
+	protected EntityManager em;
 
 	// No injection on a non- ejb class possiible....
 	//@Resource (mappedName=Constants.DATA_SOURCE_NAME) 
