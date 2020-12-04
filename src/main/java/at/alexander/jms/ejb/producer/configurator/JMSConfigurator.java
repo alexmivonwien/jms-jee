@@ -33,6 +33,12 @@ public class JMSConfigurator {
 		try {
 
 			Properties props = new Properties();
+			// Wildfly 17.00:
+			// this user and password shall be created before the application is deployed
+			// with the help of add-user.sh. The jmsuser shall be an application user that belongs to the group guest,
+			// as explained here:
+			// http://www.mastertheboss.com/jboss-server/jboss-jms/how-to-code-a-remote-jms-client-for-wildfly-8
+			//
 			props.put(Context.SECURITY_PRINCIPAL, "jmsuser");
 			props.put(Context.SECURITY_CREDENTIALS, "Password1!");
 			javax.naming.InitialContext ctx = new InitialContext(props);
