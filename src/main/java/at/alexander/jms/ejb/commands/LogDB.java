@@ -6,7 +6,6 @@ import javax.persistence.PersistenceContext;
 
 import org.jboss.logging.Logger;
 
-import at.alexander.jms.commons.Constants;
 import at.alexander.jms.commons.EventType;
 import at.alexander.jms.model.persistent.Log;
 
@@ -15,7 +14,7 @@ public class LogDB implements Command {
 
 	private static final Logger logger = Logger.getLogger(LogDB.class);
 
-	@PersistenceContext(name = Constants.PERSITENCE_CONTEXT_NAME)
+	@PersistenceContext
 	private EntityManager em;
 
 	@Override

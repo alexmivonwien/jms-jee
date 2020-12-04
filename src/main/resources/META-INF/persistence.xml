@@ -4,8 +4,8 @@
  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
  http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
  
-   <persistence-unit name="HomeToDeal" transaction-type="JTA">
-     <description>Home to Deal</description>
+   <persistence-unit name="jmsjee" transaction-type="JTA">
+     <description>JMS-JEE persistence Unit</description>
   	 <provider>org.hibernate.ejb.HibernatePersistence</provider>
   	 
      <jta-data-source>java:/MySqlDS_JmsJee</jta-data-source> 

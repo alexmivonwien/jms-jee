@@ -1,0 +1,27 @@
+<ejb-jar>
+    <enterprise-beans>
+        <session>
+            <ejb-name>SendMail</ejb-name>
+                <env-entry>
+                    <env-entry-name>mailFrom</env-entry-name>
+                    <env-entry-type>java.lang.String</env-entry-type>
+                    <env-entry-value>alexander.minchev@yahoo.de</env-entry-value>
+                </env-entry>
+                <env-entry>
+                    <env-entry-name>mailTo</env-entry-name>
+                    <env-entry-type>java.lang.String</env-entry-type>
+                    <env-entry-value>alexander.minchev@gmail.com</env-entry-value>
+                </env-entry>
+                <env-entry>
+                    <env-entry-name>smtpHost</env-entry-name>
+                    <env-entry-type>java.lang.String</env-entry-type>
+                    <env-entry-value>10.8.16.104</env-entry-value>
+                </env-entry>
+                 <env-entry>
+                    <env-entry-name>smtpPort</env-entry-name>
+                    <env-entry-type>java.lang.Integer</env-entry-type>
+                    <env-entry-value>25</env-entry-value>
+                </env-entry>
+         </session>
+    </enterprise-beans>
+</ejb-jar>

@@ -13,7 +13,6 @@ import javax.persistence.Query;
 
 import org.jboss.logging.Logger;
 
-import at.alexander.jms.commons.Constants;
 import at.alexander.jms.commons.EventType;
 import at.alexander.jms.ejb.commands.Command;
 import at.alexander.jms.model.persistent.Action;
@@ -40,7 +39,7 @@ public class EventProcessorBean implements EventProcessorLocal {
 
 	private static final Logger logger = Logger.getLogger(EventProcessorBean.class);
 
-	@PersistenceContext(name = Constants.PERSITENCE_CONTEXT_NAME)
+	@PersistenceContext
 	private EntityManager em;
 
 	@SuppressWarnings("unchecked")
