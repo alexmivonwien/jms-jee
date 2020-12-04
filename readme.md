@@ -12,7 +12,7 @@ Upon occuring of one of the events, the 'Alert' component reads from the databas
 and which are to be performed by dynamically calling the corresponding implementation.
 
 Depending on the configuration, the types of actions (one ore more) could be one of the:
---> Sending an E-Mail
+	--> Sending an E-Mail
 --> Writting a log entry in the database
 --> Writting a log entry into a file.
 
@@ -43,7 +43,8 @@ This user and its credentials are needed upon creating the InitialContext in the
 
 2.) The following entry shall be added at line 482 of standalone-full.xml:
 
-<jms-topic name="topic/testTopic" entries="java:/jms/topic/testTopic" />
+&lt;jms-topic name="topic/testTopic" entries="java:/jms/topic/testTopic" /&gt;
 
-3.) We created a test servlet that invokes the MessageProducerJobRemote (actually MessageProducerJob.scheduleMessageProducing())
- 
+
+3.) We created a test servlet that invokes the MessageProducerJobRemote (actually MessageProducerJob.scheduleMessageProducing()) to avoid
+creating a remote InitialContext (because it gave errors!) 
