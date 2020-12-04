@@ -38,7 +38,15 @@
 		    <groupId>jboss</groupId>
 		    <artifactId>jboss-client</artifactId>
 		    <version>4.0.2</version>
+		    <scope>build</scope>
 		</dependency>		
+		<!-- https://mvnrepository.com/artifact/jboss/jnp-client -->
+		<dependency>
+		    <groupId>jboss</groupId>
+		    <artifactId>jnp-client</artifactId>
+		    <version>4.0.2</version>
+		    <scope>build</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.jboss.logging</groupId>
 			<artifactId>jboss-logging</artifactId>
