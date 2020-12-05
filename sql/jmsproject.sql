@@ -1,9 +1,9 @@
-
+drop database jmsjee;
 -- SET GLOBAL general_log = 'OFF'
--- create database jmsjee;
+create database jmsjee;
 -- CREATE USER 'homeToDealuser'@'localhost' IDENTIFIED BY 'sasho0304';
--- GRANT ALL PRIVILEGES ON jmsjee.* TO 'homeToDealuser'@'localhost' IDENTIFIED BY 'sasho0304' WITH GRANT OPTION;
--- ALTER DATABASE jmsjee CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+GRANT ALL PRIVILEGES ON jmsjee.* TO 'homeToDealuser'@'localhost' IDENTIFIED BY 'sasho0304' WITH GRANT OPTION;
+ALTER DATABASE jmsjee CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 
 
@@ -11,23 +11,25 @@ use jmsjee;
 
 
 CREATE TABLE if not exists EVENT (
-   id int(11) not null AUTO_INCREMENT,
+   id int(11) not null,
    typ  varchar(255),
    constraint PK_ID primary key (id)
 ) ;
 
 CREATE TABLE if not exists ACT (
-	id int(11) not null AUTO_INCREMENT, 
+	id int(11) not null, 
 	typ  varchar(255),
     constraint PK_ID primary key (id)
 ) ;
 
 CREATE TABLE if not exists EVENT_ACT (
-  id int(11) not null AUTO_INCREMENT, 
-  EVENT_ID int(10) unsigned NOT NULL,
-  ACT_ID int(10) unsigned NOT NULL,
-  constraint PK_ID primary key (id)
-) ;
+  id int(11) not null, 
+  EVENT_ID int(11) NOT NULL,
+  ACT_ID int(11) NOT NULL,
+  constraint PK_ID primary key (id),
+  foreign key (EVENT_ID) references EVENT(ID),
+  foreign key (ACT_ID) references ACT(ID)
+ ) ;
 
 
 CREATE TABLE if not exists CONFIG (

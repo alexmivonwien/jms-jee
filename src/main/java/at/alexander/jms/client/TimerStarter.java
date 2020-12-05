@@ -4,7 +4,7 @@ import java.util.Properties;
 
 import javax.naming.Context;
 
-import at.alexander.jms.ejb.producer.MessageProducerJobRemote;
+import at.alexander.jms.ejb.producer.MessageProducerJobRemoteXYZ;
 
 public class TimerStarter {
 
@@ -13,7 +13,7 @@ public class TimerStarter {
 		try {
 			Context jndiContext = getInitialContext();
 			Object ref = jndiContext.lookup("MessageProducerJob/remote");
-			MessageProducerJobRemote timerRemote = (MessageProducerJobRemote) ref;
+			MessageProducerJobRemoteXYZ timerRemote = (MessageProducerJobRemoteXYZ) ref;
 			timerRemote.scheduleMessageProducing();
 		}
 
@@ -32,10 +32,17 @@ public class TimerStarter {
 //		// ... Specify the JNDI properties specific to the vendor.
 //		return new javax.naming.InitialContext(p);
 
-		Properties properties = new Properties();
-		properties.setProperty("java.naming.factory.initial", "org.jnp.interfaces.NamingContextFactory");
-		properties.setProperty("java.naming.factory.url.pkgs", "org.jboss.naming:org.jnp.interfaces");
-		properties.setProperty("java.naming.provider.url", "jnp://localhost:1099");
+//		Properties properties = new Properties();
+//		properties.setProperty("java.naming.factory.initial", "org.jnp.interfaces.NamingContextFactory");
+//		properties.setProperty("java.naming.factory.url.pkgs", "org.jboss.naming:org.jnp.interfaces");
+//		properties.setProperty("java.naming.provider.url", "jnp://localhost:1099");
+
+		// Set up the namingContext for the JNDI lookup
+		final Properties properties = new Properties();
+		properties.put(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.naming.remote.client.InitialContextFactory");
+		properties.put(Context.PROVIDER_URL, "http-remoting://127.0.0.1:8080");
+		properties.put(Context.SECURITY_PRINCIPAL, "jmsuser");
+		properties.put(Context.SECURITY_CREDENTIALS, "Password1!");
 
 		return new javax.naming.InitialContext(properties);
 	}
