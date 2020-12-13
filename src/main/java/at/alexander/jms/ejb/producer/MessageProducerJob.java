@@ -10,6 +10,8 @@ import javax.ejb.EJBException;
 import javax.ejb.Stateless;
 import javax.ejb.Timeout;
 import javax.ejb.TimerService;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.jms.JMSException;
 import javax.jms.MessageProducer;
 import javax.jms.ObjectMessage;
@@ -56,6 +58,7 @@ public class MessageProducerJob {// implements MessageProducerJobRemoteXYZ
 	private JMSConfigurator jmsConfigurator;
 
 	@PostConstruct
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	private void init() {
 		this.configurator = new MessageProducerConfigurator(em);
 		this.jmsConfigurator = new JMSConfigurator();
